@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!-->    
+    Copyright (C) 2019  Timo Meilinger (timo@meilinger.app)
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.<?xml version="1.0"?> 
+<-->  
+  
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"  
+     xmlns:em="http://www.mozilla.org/2004/em-rdf#">  
+  
+  <Description about="urn:mozilla:install-manifest">  
+    <em:id>StampMail@meilinger.app</em:id>  
+    <em:name>StampMail</em:name>  
+    <em:version>1.0</em:version>  
+    <em:creator>TM</em:creator>
+    <em:optionsURL>chrome://StampMail/content/settings.xul</em:optionsURL>
+    <em:type>2</em:type> <!-- type = extension -->
+    <em:bootstrap>false</em:bootstrap>  
+     
+    <em:targetApplication>  
+      <Description>  
+        <em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
+        <em:minVersion>52.0</em:minVersion>  
+        <em:maxVersion>60.*</em:maxVersion>  
+      </Description>  
+    </em:targetApplication>  
+     
+  </Description>        
+</RDF>

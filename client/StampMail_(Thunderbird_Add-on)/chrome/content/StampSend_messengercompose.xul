@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!-->    
+    Copyright (C) 2019  Timo Meilinger (timo@meilinger.app)
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.<?xml version="1.0"?> 
+<-->
+<overlay id="StampSend" 
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	
+	<script type="application/javascript" 
+		src="chrome://StampMail/content/StampSend_small.js"/>
+
+	<toolbox id="compose-toolbox">
+		<toolbar id="composeToolbar2">
+			<toolbarbutton id="Button_StampSend"
+				label="StampSend"
+				tooltiptext="Add a Stamp"
+				class="toolbarbutton-1"
+            	removable="false"
+            	disabled="false"
+				type= "panel">
+				
+				<panel id="StampSend_panel" position="after_start">
+					<label id="StampSend_panel_label_address" value="Recipient-Address:"/>
+    				<textbox type="text" id="rec_address" readOnly="false"  size="65"/>
+					<label id="StampSend_panel_label_tx_hash" value="TX-Hash:"/>
+    				<textbox type="text" id="tx_hash" readOnly="false" size="65"/>
+					<div>
+    				<button id="StampSend_btn_send" label="Add Stamp" oncommand="sendStamp()" disabled="false"/>
+					<button id="StampSend_cancel" label="Cancel" oncommand="close_StampSend_panel();"/>
+					</div>
+  				</panel>
+			</toolbarbutton>
+			<toolbarbutton id="Button_StampAccount"
+				label="Add StampAccountID"
+				tooltiptext="Add my StampAccountID"
+				class="toolbarbutton-1"
+            	removable="false"
+            	disabled="false"
+				oncommand="addAccountToHeader();"/>
+				 
+		</toolbar>
+	</toolbox>
+</overlay>

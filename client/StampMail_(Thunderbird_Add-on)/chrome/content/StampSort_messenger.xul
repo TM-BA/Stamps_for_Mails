@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!-->    
+    Copyright (C) 2019  Timo Meilinger (timo@meilinger.app)
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.<?xml version="1.0"?> 
+<-->
+<overlay id="StampSort"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+	<script type="application/javascript" 
+		src="chrome://StampMail/content/StampSort.js"/>
+
+	<toolbar id="mail-bar3">
+		<toolbarbutton id="Button_StampSort"
+			label="StampSort"
+			tooltiptext="StampSort the Mails"
+			oncommand=""
+			class="toolbarbutton-1"
+            removable="false"
+            disabled="false"
+			type="panel">
+
+			<panel id="StampSort_panel" position="after_start" hidden="false">
+					<div id="StampSort_div_start" hidden = "false">
+    				<button id="StampSort_btn_verify" label="Start Verification" oncommand="SortMails();" disabled="false"/>
+					<button label="Cancel" oncommand="close_StampSort_panel();"/>
+					</div>
+
+					<label id="StampSort_label_object" value="Verification-Object:" hidden="true"/> 
+    				<textbox type="text" id="ver_object" readOnly="false" multiline="true" rows="10" hidden="true"/>
+					<div id="StampSort_div_verify" hidden="true"> 
+    				<button id="StampSort_btn_verify" label="Approve" oncommand="validate_messages();" disabled="false"/>
+					<button label="Cancel" oncommand="close_StampSort_panel();"/>
+					</div>
+  			</panel>
+		</toolbarbutton>
+
+		<toolbarbutton id="Button_StampAddress"
+			label="StampAddress"
+			tooltiptext="Find the StampAddress for an E-Mail"
+			oncommand=""
+			class="toolbarbutton-1"
+            removable="false"
+            disabled="false"
+			type="panel">
+
+			<panel id="StampAddress_panel" position="after_start" hidden="false">
+					<label id="StampAccount_label_email" value="E-Mail Address:" hidden="false"/>
+					<textbox type="text" id="Email_address_txt" readOnly="false" size="30" hidden="false"/>
+					<label id="Stamp_address_label" hidden="true"/> 
+					<div id="StampAddress_div_start" hidden = "false">
+    				<button id="Stamp_btn_find" label="Find" oncommand="find_StampAddress();" disabled="false"/>
+					<button label="Cancel" oncommand="close_StampAddress_panel();"/>
+					</div>
+  			</panel>
+		</toolbarbutton>
+	</toolbar>	
+</overlay>

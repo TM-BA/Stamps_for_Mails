@@ -1,0 +1,59 @@
+<!-->    
+    Copyright (C) 2019  Timo Meilinger (timo@meilinger.app)
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.<?xml version="1.0"?> 
+<-->
+<?xml-stylesheet href="chrome://communicator/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://messenger/skin/prefPanels.css" type="text/css"?>
+<?xml-stylesheet href="chrome://communicator/skin/pref/pref.css" type="text/css"?>
+
+<!DOCTYPE dialog>
+
+<dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	title="Stamp-Settings"
+	id="HTLsettings"
+	onload="onLoad();"
+        ondialogaccept="savePrefs();">
+
+<script type="application/x-javascript">
+<![CDATA[
+  var prefs = Components.classes["@mozilla.org/preferences-service;1"]
+		.getService(Components.interfaces.nsIPrefBranch);
+	   
+  function savePrefs() {
+	prefs.setCharPref("extensions.Stamp.accountID",document.getElementById("account_id").value);
+	prefs.setStringPref("extensions.Stamp.AddressDB", document.getElementById("address_db").value);		
+  }
+    
+  function onLoad() {
+	document.getElementById("account_id").value = prefs.getCharPref("extensions.Stamp.accountID");
+	document.getElementById("address_db").value = prefs.getStringPref("extensions.Stamp.AddressDB");
+   }
+]]>
+</script>
+<groupbox>
+	
+	<!--hbox align="center"-->
+		<label value="AccountID" />
+		<textbox id="account_id" size="80" />
+	<!--/hbox>
+	<hbox align="center"-->
+		<label value="AddressDB" />
+		<textbox id="address_db" rows="25" multiline="true"/>
+	<!--/hbox-->
+
+</groupbox>
+
+<spacer height="10px" /> 
+</dialog>
